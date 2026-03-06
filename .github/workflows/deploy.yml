@@ -17,7 +17,7 @@ jobs:
         with:
           host: 51.21.135.58
           username: ubuntu
-          password: ${{ secrets.MYCICDSSH }}
+          key: ${{ secrets.MYCICDSSH }}
           port: 22
           script: whoami
 
