@@ -17,7 +17,7 @@ export default function BirthdayWish() {
   const [wishes, setWishes] = useState<string[]>([
     "🎉 Wishing you an amazing year ahead!",
     "🎂 Happy Birthday, Aashish!",
-    "🎈 May all your dreams come true!",
+    "🎈 May all your dreams come true",
     "🌟 Another year older, another year wiser",
     "🎊 You're awesome! Have a fantastic day!",
   ]);
