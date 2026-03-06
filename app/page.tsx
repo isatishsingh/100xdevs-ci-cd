@@ -18,7 +18,7 @@ export default function BirthdayWish() {
     "🎉 Wishing you an amazing year ahead!",
     "🎂 Happy Birthday, Aashish!",
     "🎈 May all your dreams come true!",
-    "🌟 Another year older, another year wiser!",
+    "🌟 Another year older, another year wiser",
     "🎊 You're awesome! Have a fantastic day!",
   ]);
   const [newWish, setNewWish] = useState("");
