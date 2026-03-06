@@ -12,7 +12,7 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v3
       
-      - name: Execute remote SSH commands using password
+      - name: Execute remote SSH command using password
         uses: appleboy/ssh-action@v1
         with:
           host: 51.21.135.58
