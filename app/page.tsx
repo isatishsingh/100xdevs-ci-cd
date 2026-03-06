@@ -16,7 +16,7 @@ export default function BirthdayWish() {
   const [confetti, setConfetti] = useState<Confetti[]>([]);
   const [wishes, setWishes] = useState<string[]>([
     "🎉 Wishing you an amazing year ahead!",
-    "🎂 Happy Birthday, Aashish!",
+    "🎂 Happy Birthday, Preeti!",
     "🎈 May all your dreams come true",
     "🌟 Another year older, another year wiser",
     "🎊 You're awesome! Have a fantastic day",
@@ -90,7 +90,7 @@ export default function BirthdayWish() {
             Happy Birthday!
           </h1>
           <p className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 mb-4">
-            Aashish Singh
+            Preeti Rai
           </p>
           <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 font-semibold">
             🎂 Today is your special day! 🎂
