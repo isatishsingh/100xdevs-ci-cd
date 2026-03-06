@@ -28,8 +28,6 @@ jobs:
             cd 100xdevs-ci-cd
             git pull origin main
             npm install
+            rm -rf .next
             npm run build
-            npm run start
-
-            pm2 delete nextjs-app || true
-            pm2 start npm --name "nextjs-app" -- start
+            pm2 restart nextjs-app
