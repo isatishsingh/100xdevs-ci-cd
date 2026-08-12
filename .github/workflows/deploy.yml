@@ -2,7 +2,8 @@ name: Continuous Integration and Delivery
 
 on: 
   push:
-    branches: [main]
+    branches: 
+    - main
 
 jobs:
   deploy:
@@ -13,8 +14,8 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v3
 
-       - name: Execute remote SSH commands using password
-        uses: appleboy/ssh-action@v1
+      - name: Execute remote SSH commands using password
+        uses: appleboy/ssh-action@v1.2.0
         with:
           host: 16.192.178.210
           username: ubuntu
