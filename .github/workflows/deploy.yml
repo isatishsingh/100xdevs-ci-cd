@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Checkout the code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Execute remote SSH commands using password
         uses: appleboy/ssh-action@v1.2.0
@@ -32,3 +32,6 @@ jobs:
             npm install
             npm run build
             npm run dev
+
+            pm2 restart cicd
+            pm2 save
