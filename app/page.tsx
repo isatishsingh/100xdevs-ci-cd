@@ -4,9 +4,17 @@ import Image from "next/image";
 import { useState } from "react";
 
 const confetti = Array.from({ length: 92 }, (_, index) => index);
+const moments = [
+  { image: "/preeti/preeti-saree.jpg", label: "Grace & confidence", caption: "A bright beginning for every beautiful chapter ahead." },
+  { image: "/preeti/preeti-formal.jpg", label: "Ready to lead", caption: "A degree earned with focus, resolve, and real brilliance." },
+  { image: "/preeti/memory.jpg", label: "Moments to cherish", caption: "The people and laughter that make success sweeter." },
+  { image: "/preeti/preeti-night.jpg", label: "Dreaming bigger", caption: "The future is ready for everything you will become." },
+];
 
 export default function Home() {
   const [celebrating, setCelebrating] = useState(false);
+  const [activeMoment, setActiveMoment] = useState(0);
+  const moment = moments[activeMoment];
 
   return (
     <main className="graduate-page">
@@ -76,6 +84,23 @@ export default function Home() {
         <div className="memory-frame image-frame">
           <Image src="/preeti/memory.jpg" alt="A happy shared memory with Preeti" fill sizes="(max-width: 700px) 100vw, 30vw" />
           <span>Here&apos;s to every next chapter</span>
+        </div>
+      </section>
+
+      <section className="moments-section" aria-labelledby="moments-title">
+        <div className="moments-heading">
+          <p className="kicker">A little gallery</p>
+          <h2 id="moments-title">More than a<br /><em>degree.</em></h2>
+          <p>Choose a moment to celebrate the person behind this wonderful achievement.</p>
+          <div className="moment-controls" role="tablist" aria-label="Preeti's moments">
+            {moments.map((item, index) => (
+              <button key={item.label} onClick={() => setActiveMoment(index)} aria-selected={index === activeMoment} role="tab" className={index === activeMoment ? "active" : ""}>{String(index + 1).padStart(2, "0")}</button>
+            ))}
+          </div>
+        </div>
+        <div className="moment-display" key={moment.image}>
+          <Image src={moment.image} alt={moment.label} fill sizes="(max-width: 800px) 100vw, 45vw" />
+          <div className="moment-caption"><span>{moment.label}</span><p>{moment.caption}</p></div>
         </div>
       </section>
 
