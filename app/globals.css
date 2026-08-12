@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #253b32;
+  --cream: #fff8eb;
+  --peach: #f7c69d;
+  --coral: #e87b61;
+  --yellow: #f5d763;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--cream); }
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button { font: inherit; }
+
+.birthday-page {
+  position: relative;
+  isolation: isolate;
+  min-height: 100svh;
+  overflow: hidden;
+  padding: 28px clamp(24px, 6vw, 88px) 24px;
+  background:
+    radial-gradient(circle at 88% 24%, rgba(247, 198, 157, .45) 0 13%, transparent 13.2%),
+    radial-gradient(circle at 8% 84%, rgba(245, 215, 99, .3) 0 13%, transparent 13.2%),
+    var(--cream);
+}
+
+.birthday-page::before, .birthday-page::after {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  border: 1px solid rgba(37, 59, 50, .16);
+  border-radius: 50%;
+}
+
+.birthday-page::before { width: 530px; height: 530px; right: -250px; top: -215px; }
+.birthday-page::after { width: 760px; height: 760px; left: -570px; bottom: -610px; }
+
+.topbar, footer, .card-topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  letter-spacing: .13em;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.topbar { border-bottom: 1px solid rgba(37, 59, 50, .24); padding-bottom: 17px; }
+.date { opacity: .65; }
+
+.hero { position: relative; max-width: 720px; padding: clamp(76px, 12vw, 146px) 0 62px; }
+.sun { position: absolute; width: 136px; height: 136px; right: 4%; top: 12%; border-radius: 50%; background: var(--yellow); opacity: .85; }
+.eyebrow { position: relative; margin: 0 0 13px; color: var(--coral); font-family: Georgia, serif; font-size: clamp(16px, 2vw, 21px); font-style: italic; }
+
+h1 {
+  position: relative;
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(70px, 12.6vw, 178px);
+  font-weight: 400;
+  line-height: .76;
+  letter-spacing: -.085em;
+}
+
+h1 em { color: var(--coral); font-weight: 400; }
+.intro { max-width: 350px; margin: 42px 0 27px; font-size: 15px; line-height: 1.65; }
+
+.celebrate-button {
+  display: inline-flex;
+  gap: 25px;
+  align-items: center;
+  border: 0;
+  border-radius: 99px;
+  padding: 13px 18px 13px 21px;
+  background: var(--ink);
+  color: var(--cream);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  transition: transform .2s ease, background .2s ease;
+}
+.celebrate-button:hover { transform: translateY(-3px) rotate(-1deg); background: var(--coral); }
+.celebrate-button span:last-child { font-size: 18px; line-height: .7; }
+
+.message-card {
+  width: min(500px, 100%);
+  margin-left: auto;
+  padding: 26px 28px 29px;
+  border: 1px solid rgba(37, 59, 50, .3);
+  background: rgba(255, 253, 246, .62);
+  box-shadow: 10px 10px 0 var(--peach);
+  transform: rotate(1.3deg);
+}
+.card-topline { color: var(--coral); font-size: 9px; }
+blockquote { margin: 37px 0 27px; font-family: Georgia, serif; font-size: clamp(22px, 3vw, 31px); line-height: 1.15; letter-spacing: -.035em; }
+.signature { display: flex; align-items: center; gap: 10px; color: rgba(37, 59, 50, .7); font-family: Georgia, serif; font-size: 13px; font-style: italic; }
+.signature-line { width: 42px; border-top: 1px solid currentColor; }
+footer { margin-top: 54px; color: rgba(37, 59, 50, .62); }
+
+.winning-overlay { position: fixed; z-index: 10; inset: 0; display: grid; place-items: center; padding: 20px; background: rgba(24, 49, 41, .58); backdrop-filter: blur(7px); animation: overlay-in .25s ease-out; }
+.winner-popup { position: relative; z-index: 2; width: min(465px, 100%); overflow: hidden; padding: 44px 38px 33px; border: 1px solid rgba(37, 59, 50, .25); background: #fff9ed; box-shadow: 0 24px 70px rgba(10, 29, 23, .3), 12px 12px 0 var(--coral); text-align: center; animation: popup-in .52s cubic-bezier(.16, 1, .3, 1) both; }
+.winner-popup::before { position: absolute; z-index: -1; inset: 10px; content: ""; border: 1px solid rgba(37, 59, 50, .15); }
+.close-popup { position: absolute; top: 13px; right: 15px; width: 30px; height: 30px; border: 0; border-radius: 50%; background: transparent; color: var(--ink); cursor: pointer; font-size: 25px; line-height: 1; transition: background .2s ease; }
+.close-popup:hover { background: var(--peach); }
+.winner-label { margin: 0; color: var(--coral); font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.trophy { display: grid; place-items: center; width: 76px; height: 76px; margin: 17px auto 15px; border-radius: 50%; background: var(--yellow); box-shadow: inset 0 0 0 7px #fff3c8; color: var(--coral); font-size: 35px; animation: trophy-bounce .7s .3s cubic-bezier(.34, 1.56, .64, 1) both; }
+.winner-popup h2 { margin: 0; font-family: Georgia, serif; font-size: clamp(40px, 9vw, 57px); font-weight: 400; line-height: .88; letter-spacing: -.065em; }
+.winner-popup h2 em { color: var(--coral); font-weight: 400; }
+.winner-popup > p:not(.winner-label) { max-width: 325px; margin: 23px auto 28px; font-size: 14px; line-height: 1.65; }
+.popup-actions { display: grid; gap: 14px; justify-items: center; }
+.popup-primary { border: 0; border-radius: 99px; padding: 14px 22px; background: var(--ink); color: var(--cream); cursor: pointer; font-size: 13px; font-weight: 700; transition: transform .2s ease, background .2s ease; }
+.popup-primary:hover { transform: translateY(-2px); background: var(--coral); }
+.popup-actions span { color: rgba(37, 59, 50, .6); font-size: 9px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+.confetti { position: fixed; z-index: 3; inset: 0; pointer-events: none; overflow: hidden; }
+.confetti span { position: absolute; top: -32px; left: var(--left); width: 9px; height: 17px; border-radius: 2px; background: #ff795d; box-shadow: 0 1px 2px rgba(0, 0, 0, .12); animation: shower var(--duration) linear var(--delay) infinite; }
+.confetti span:nth-child(4n) { width: 12px; height: 12px; border-radius: 50%; background: #3eb4df; }
+.confetti span:nth-child(5n) { width: 7px; height: 19px; border-radius: 1px; background: #f6d44f; }
+.confetti span:nth-child(3n) { background: #62ad74; }
+.confetti span:nth-child(7n) { width: 15px; height: 8px; border-radius: 0; background: #9a57d0; }
+.confetti span:nth-child(11n) { width: 10px; height: 10px; border-radius: 50% 0; background: #f5b243; }
+@keyframes shower { 0% { transform: translate3d(0, -10vh, 0) rotate(0); opacity: 0; } 8% { opacity: 1; } 100% { transform: translate3d(24px, 118vh, 0) rotate(var(--spin)); opacity: .85; } }
+@keyframes overlay-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes popup-in { from { opacity: 0; transform: translateY(35px) scale(.9) rotate(-2deg); } to { opacity: 1; transform: translateY(0) scale(1) rotate(0); } }
+@keyframes trophy-bounce { from { transform: scale(0) rotate(-25deg); } to { transform: scale(1) rotate(0); } }
+
+@media (prefers-reduced-motion: reduce) { .confetti span, .winner-popup, .winning-overlay, .trophy { animation: none; } }
+
+@media (max-width: 600px) {
+  .birthday-page { padding: 23px 22px 21px; }
+  .date { display: none; }
+  .hero { padding-top: 104px; }
+  .sun { width: 100px; height: 100px; right: -5px; top: 8%; }
+  h1 { font-size: clamp(65px, 20vw, 105px); }
+  .intro { margin-top: 39px; }
+  .message-card { padding: 21px; box-shadow: 7px 7px 0 var(--peach); }
+  blockquote { margin: 30px 0 23px; }
+  .winner-popup { padding: 42px 25px 29px; box-shadow: 8px 8px 0 var(--coral); }
+}
