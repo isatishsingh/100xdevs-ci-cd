@@ -1,0 +1,23 @@
+name: Continuous Integration and Delivery
+
+on: 
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    name: Push to Ec2
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v3
+
+       - name: Execute remote SSH commands using password
+        uses: appleboy/ssh-action@v1
+        with:
+          host: 16.192.178.210
+          username: ubuntu
+          password: ${{ secrets.PRIVATE_SSH_KEY }}
+          port: 22
+          script: whoami
